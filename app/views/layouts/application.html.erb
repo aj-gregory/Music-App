@@ -8,6 +8,17 @@
 </head>
 <body>
 
+	<% if logged_in? %>
+	<%= "You are currently logged in as #{current_user.email}" %>
+	<%= button_to "Log Out", session_url, :method => :delete %>
+	<% end %><br><br>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <li><%= error %>
+<% end %>
+<% end %>
+
 <%= yield %>
 
 </body>

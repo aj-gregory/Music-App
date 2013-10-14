@@ -5,4 +5,21 @@
 <br>
 <br>
 
+<h2>Notes</h2>
+<% @track.notes.each do |note| %>
+  <%= note.user.email %> said: <%= note.body %> <%= button_to "Delete Note", note_url(note), :method => :delete %>
+<% end %>
+<br><br>
+
+<form action="<%= track_notes_url(@track) %>" method="post" accept-charset="utf-8">
+
+	<input type="hidden" name="authenticity_token" value="form_authenticity_token">
+
+	<label for="note">Note</label>
+	<input type="text" name="note[body]" id="note">
+
+
+	<input type="submit" value="Add Note &rarr;">
+</form>
+
 <%= button_to "Delete Track", track_url, :method => :delete %>

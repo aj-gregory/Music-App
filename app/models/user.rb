@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   validates :password, :length => {:minimum => 6}, :on => :create
   validates :email, :uniqueness => true
 
+  has_many :notes,
+    :dependent => :destroy
+
   def self.generate_session_token
     session_token = SecureRandom.urlsafe_base64
   end
@@ -35,7 +38,6 @@ class User < ActiveRecord::Base
   end
 
   def is_password?(password)
-    p "HERE"
     return true if BCrypt::Password.new(self.password_digest).is_password?(password)
     false
   end

@@ -1,0 +1,8 @@
+<h1><%= @track.name %></h1>
+
+<h2>Lyrics</h2>
+<%= @track.lyrics %>
+<br>
+<br>
+
+<%= button_to "Delete Track", track_url, :method => :delete %>

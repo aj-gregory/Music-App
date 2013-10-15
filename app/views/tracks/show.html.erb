@@ -23,3 +23,5 @@
 </form>
 
 <%= button_to "Delete Track", track_url, :method => :delete %>
+<br><br>
+<%= button_to "Back to Album", album_url(@track.album), :method => :get %>

@@ -8,3 +8,5 @@
 
 <%= button_to "Add Track", new_album_track_url(@album), :method => :get %>
 <%= button_to "Delete Album", album_url, :method => :delete %>
+<br><br>
+<%= button_to "Back to Band", band_url(@album.band), :method => :get %>

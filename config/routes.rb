@@ -1,5 +1,10 @@
 MusicApp::Application.routes.draw do
-  resources :users, :only => [:new, :create, :show]
+  resources :users, :only => [:new, :create, :show] do
+    collection do
+      get :activate
+    end
+  end
+
   resource :session, :only => [:new, :create, :destroy]
 
   resources :bands do

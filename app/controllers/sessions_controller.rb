@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
 
     if @user
-      session[:session_token] = @user.reset_session_token!
-      redirect_to bands_url
+      log_in_user!
     else
       flash[:errors] = ["Incorrect username or password"]
       redirect_to new_session_url

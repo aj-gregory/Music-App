@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :session_token, :activated, :activation_token
-  attr_reader :password, :active
+  attr_accessible :email, :password, :session_token, :activated, :activation_token, :admin
+  attr_reader :password, :active, :admin
 
   before_validation on: :create do
     self.class.generate_session_token if session_token.nil?
